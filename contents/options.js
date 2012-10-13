@@ -13,7 +13,6 @@
   };
 
   setSetting = function(name, val, response) {
-    q.logger.debug("set:" + name, val);
     return chrome.extension.sendRequest({
       action: 'settings',
       type: 'set',
@@ -54,7 +53,18 @@
       type: 'get',
       name: 'all'
     }, function(msg) {
-      var name, value, _results;
+      var name, token, value, _results;
+      token = null;
+      for (name in msg) {
+        value = msg[name];
+        if (name === 'token') {
+          token = value;
+          break;
+        }
+      }
+      if (token === null) {
+        location.href = 'login.html';
+      }
       _results = [];
       for (name in msg) {
         value = msg[name];

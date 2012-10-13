@@ -16,7 +16,7 @@
     NONT: 5
   };
 
-  q.LOG_LEVEL = q.logLevels.ERROR;
+  q.LOG_LEVEL = q.logLevels.DEBUG;
 
   q.DOMAIN = 'https://qiita.com';
 

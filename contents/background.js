@@ -203,7 +203,9 @@
       'notifyNotifications': true,
       'notifyFollowing': true,
       'notifyAllPosts': false,
-      'notifyTime': 2
+      'notifyTime': 2,
+      'token': null,
+      'url_name': null
     },
     getAll: function() {
       var name, res;
@@ -222,6 +224,7 @@
       }
     },
     set: function(name, value) {
+      q.logger.debug("set:" + name, JSON.stringify(value));
       return localStorage.setItem(name, JSON.stringify(value));
     }
   };
